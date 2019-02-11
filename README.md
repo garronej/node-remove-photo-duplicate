@@ -8,6 +8,8 @@ and it can take for ever to clean everything up.
 
 ## Features
 
+Will work on Windows, Mac and Linux.
+
 Remove all duplicated images keeping only one copy of every file.  
 The copy of the file kept is always the one the higher in the 
 file directory ( closer to root ).
@@ -15,9 +17,8 @@ Two images are deemed duplicate only if they have the same
 name and are strictly identical.  
 
 The script will also remove all the directory that no longer contain photos.
+Or that only contain ``Thumbs.db`` files or ``.picasa.ini`` files.
 ( not necessary shown by the dry run log ).
-
-Will work on Windows, Mac and Linux.
 
 ## Example: 
 
@@ -42,6 +43,8 @@ during the real execution.
 ```bash
 node ./main dry-run [path_to_image_directory]
 ```
+**IMPORTANT:** Suspend all the sync softwares watching the target
+directory before running ( dropbox, google drive, google photo, iCloud, OneDrive, resilio-sync ect...)
 
 ```bash
 node ./main run [path_to_image_directory]
