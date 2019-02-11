@@ -146,7 +146,15 @@ function remove_duplicate(root_dir_path, dry_run) {
 
     for (let arr of map.values()) {
 
-        arr = arr.sort((a, b) => b.length - a.length);
+        arr = arr.sort((a, b) => {
+
+            const order= b.length - a.length
+
+            return order !== 0 ?
+                order:
+                (a < b ? 1 : -1);
+
+        });
 
         const kept_file_path = arr.pop();
 
