@@ -154,9 +154,10 @@ function remove_duplicate(root_dir_path, dry_run) {
 
     }
 
-    console.log(`\n\nThere is ${map.size} files duplicated in ${root_dir_path}`);
+    console.log("\n\nEnd of the analysis phase");
 
     let total_size= 0;
+    let file_deleted_count= 0;
 
     for (let arr of map.values()) {
 
@@ -183,6 +184,7 @@ function remove_duplicate(root_dir_path, dry_run) {
             if (!dry_run) {
 
                 total_size+= fs.statSync(file_path).size;
+                file_deleted_count++;
 
                 fs.unlinkSync(file_path);
 
@@ -194,7 +196,12 @@ function remove_duplicate(root_dir_path, dry_run) {
 
     }
 
-    console.log(`\n\nTotal saved space: ${(total_size/1000000).toFixed(0)}MB`);
+    console.log([
+        "\n",
+        `There was ${map.size} files with at least one copy somewhere in ${root_dir_path}`,
+        `A total of ${file_deleted_count} files where deleted`,
+        `${(total_size / 1000000).toFixed(0)}MB where freed on the disk`
+    ].join("\n"));
 
 }
 
