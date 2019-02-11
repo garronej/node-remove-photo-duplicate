@@ -22,7 +22,11 @@ The script will also remove all the directory that no longer contain photos.
 Or that only contain ``Thumbs.db`` files or ``.picasa.ini`` files.
 ( not necessary shown by the dry run log ).
 
+## Warning
 
+If you have created some album folder where you have voluntary
+copied some photo from an other directory be aware that this 
+script will mess things up for you. You wont loose any photos tho.
 
 ## Example: 
 
