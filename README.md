@@ -16,9 +16,13 @@ file directory ( closer to root ).
 Two images are deemed duplicate only if they have the same
 name and are strictly identical.  
 
+Not only images but also video .zip and .rar folder will be handled.
+
 The script will also remove all the directory that no longer contain photos.
 Or that only contain ``Thumbs.db`` files or ``.picasa.ini`` files.
 ( not necessary shown by the dry run log ).
+
+
 
 ## Example: 
 

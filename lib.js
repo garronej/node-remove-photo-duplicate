@@ -5,7 +5,9 @@ const crypto = require("crypto");
 const artifacts_file_names = ["Thumbs.db", ".picasa.ini"];
 const media_extensions = new Set([
     ...require("./video_extensions"),
-    ...require("./image_extensions")
+    ...require("./image_extensions"),
+    "zip",
+    "rar"
 ]);
 
 function remove_duplicate(root_dir_path, dry_run) {
@@ -40,11 +42,21 @@ function remove_duplicate(root_dir_path, dry_run) {
 
             const file_path = path.join(dir_path, file_name);
 
-            if (fs.lstatSync(file_path).isDirectory()) {
+            const ls_stat= fs.lstatSync(file_path);
+
+            if (ls_stat.isDirectory()) {
 
                 build_map_rec(file_path, map, count);
 
             } else {
+
+                if( ls_stat.size > 100000000 ){
+
+                    console.log(`${path.relative(root_dir_path, file_path)} is too lage, skipping`);
+
+                    continue;
+
+                }
 
                 if (
                     !media_extensions.has(path.extname(file_name).substr(1).toLowerCase())
@@ -144,6 +156,8 @@ function remove_duplicate(root_dir_path, dry_run) {
 
     console.log(`\n\nThere is ${map.size} files duplicated in ${root_dir_path}`);
 
+    let total_size= 0;
+
     for (let arr of map.values()) {
 
         arr = arr.sort((a, b) => {
@@ -168,6 +182,8 @@ function remove_duplicate(root_dir_path, dry_run) {
 
             if (!dry_run) {
 
+                total_size+= fs.statSync(file_path).size;
+
                 fs.unlinkSync(file_path);
 
             }
@@ -177,6 +193,8 @@ function remove_duplicate(root_dir_path, dry_run) {
         }
 
     }
+
+    console.log(`\n\nTotal saved space: ${(total_size/1000000).toFixed(0)}MB`);
 
 }
 
