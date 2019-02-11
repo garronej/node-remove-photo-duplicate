@@ -17,6 +17,8 @@ name and are strictly identical.
 The script will also remove all the directory that no longer contain photos.
 ( not necessary shown by the dry run log ).
 
+Will work on Windows, Mac and Linux.
+
 ## Example: 
 
 ![image](https://user-images.githubusercontent.com/6702424/52542652-5aa18f00-2da2-11e9-88ad-349db26d6a03.png)
@@ -24,6 +26,14 @@ The script will also remove all the directory that no longer contain photos.
 ![image](https://user-images.githubusercontent.com/6702424/52542670-8cb2f100-2da2-11e9-8a9e-b446b58f14ef.png)
 
 ## Usage
+
+### Setup
+
+- First install node.js [node.js](https://nodejs.org/en/).
+- Download and extract [the repo](https://github.com/garronej/node-remove-photo-duplicate/archive/master.zip)`
+- Open a terminal then cd to the extracted repo.
+
+### Run
 
 As the script is not interactive it is wise to first run 
 it in dry mode to figure out what would be deleted
