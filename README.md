@@ -30,9 +30,9 @@ script will mess things up for you. You wont loose any photos tho.
 
 ## Example: 
 
-![image](https://user-images.githubusercontent.com/6702424/52542652-5aa18f00-2da2-11e9-88ad-349db26d6a03.png)
+![image](https://user-images.githubusercontent.com/6702424/52573834-43eb4e80-2e1b-11e9-9548-1db4497682d5.png)
 
-![image](https://user-images.githubusercontent.com/6702424/52542670-8cb2f100-2da2-11e9-8a9e-b446b58f14ef.png)
+![image](https://user-images.githubusercontent.com/6702424/52573690-f2db5a80-2e1a-11e9-980e-28648b329090.png)
 
 ## Usage
 
