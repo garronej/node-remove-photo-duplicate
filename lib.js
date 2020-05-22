@@ -181,7 +181,7 @@ function remove_duplicate(root_dir_path, dry_run) {
 
             console.log(`Removing duplicate found in ${path.relative(root_dir_path, dir_path)}`);
 
-            if (!dry_run) {
+            if (!dry_run && fs.existsSync(file_path) ) {
 
                 total_size+= fs.statSync(file_path).size;
                 file_deleted_count++;
