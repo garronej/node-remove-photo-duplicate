@@ -89,8 +89,11 @@ function remove_duplicate(root_dir_path, dry_run) {
     /** return true if deleted */
     const remove_dir_if_empty_rec = dir_path => {
 
-        const file_names = fs.readdirSync(dir_path)
+        if( !fs.existsSync(dir_path) ){
+                return;
+        }
 
+        const file_names = fs.readdirSync(dir_path)
 
         const sub_dir_paths = file_names
             .map(file_name => path.join(dir_path, file_name))
